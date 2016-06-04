@@ -1,0 +1,50 @@
+
+Theme Boards:
+	career
+	family
+	fun
+	health
+	religion
+	school 
+
+$search_terms = array(
+					'career' => array('fierce','difficult','business'),
+					'family' => array('love','parents','sibling'),
+					'fun' => array('hipster','colorful','quirky'),					
+					'health' => array('healthy','athlete','yoga'),
+					'meditation' => array('meditate','buddha','mind'),	
+					'religious' => array('church','cross','calm'),
+					'school' => array('brain','smart','pattern'),
+					'none' => array('beautiful','pattern','magnificent')
+				);
+
+function google_images($q, $page) {
+	$q = urlencode($q);
+	$start = ($page - 1) * 21;
+	$get_data = file_get_contents('https://www.google.com/search?safe=active&tbm=isch&source=hp&biw=1906&bih=1044&q=desktop+backgrounds+'.$q.'+-anime+-shark&tbs=ic:color');
+	preg_match_all('/src="([^"]*)"/i', $get_data, $matches, PREG_SET_ORDER);
+	$images = array();
+	if (!$matches) echo "no matches";
+	foreach ($matches as $data) {
+		$images[] = $data[1];	
+	}
+	return $images;
+}
+
+$sample_quote = '"Creativity is contagious, pass it on." -Albert Einstein';
+$rand = rand(0, 3);
+$query = $search_terms['fun'][$rand];
+
+echo 'Showing top 1 image results for '.$query.': <br>';
+
+echo '<div class="row"><div class="col-sm-12 col-xs-12"><div class="carousel slide"><div class="carousel inner"><div class="item active">';
+echo '<img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Sunset_2007-1.jpg" alt="photo1" width="350" height="350"><div class="carousel-caption"><h1>'.$sample_quote.'</h1></div>';
+//echo '<div><a href="#" class="thumbnail"><img src="' . google_images($query, 1)[1] . '" alt="photo2"></a></div>';
+//echo '<div><a href="#" class="thumbnail"><img src="' . google_images($query, 1)[2] . '" alt="photo3"></a></div>';
+echo '</div></div></div></div></div>';
+
+
+//echo '<pre>' . print_r(google_images('dogs', 1), true) . '</pre>';
+//var_dump(file_get_contents('https://www.google.com/search?hl=en&q=dog&tbm=isch&gws_rd=ssl'));
+?>
+
