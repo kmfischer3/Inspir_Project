@@ -12,7 +12,7 @@
 		</div>
 	  	<div class="panel-body">
 
-	    		<img class="img-responsive" src="http://endlessnovel.com/wp-content/uploads/inspirational-quotes-motivational-1.jpg" alt="test">
+	    		<img class="img-responsive" src="http://reichardtfoundation.com/woohoo/wp-content/uploads/inspiration-quotes-21.jpg" alt="test">
 
 		</div>
 	  	<div class="panel-footer">
