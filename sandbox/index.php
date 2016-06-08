@@ -2,7 +2,7 @@
 
 <div class="content container">
 	<h1>Welcome</h1>
-	<p>[TEST4]Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab libero, cupiditate veniam officiis itaque in porro iure fugit iusto reprehenderit commodi earum cum blanditiis quos error similique quod, facere! Hic.</p>
+	<p>[TEST5]Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab libero, cupiditate veniam officiis itaque in porro iure fugit iusto reprehenderit commodi earum cum blanditiis quos error similique quod, facere! Hic.</p>
 
 
 	<div class="panel panel-default">
