@@ -2,8 +2,8 @@
 
 <div class="content container" style="background-color:#87bce8;">	
 
-	<div class="page-heading">
-		<h1><span class="glyphicon glyphicon-screenshot"></span> Religious</h1>
+	<div class="page-heading" style="background-color:#fff;">
+		<h1><span class="glyphicon glyphicon-screenshot" style="background-color:#87bce8;"></span> Religious</h1>
 	</div>
 
 	<div class="panel panel-default">
