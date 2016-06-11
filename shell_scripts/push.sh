@@ -23,6 +23,7 @@ if [ "$COMMIT_MESSAGE" != "" ]; then
 	cd shell_scripts/
 	./ssh.sh
 	echo "[E N D : ssh]"
+	pwd
 
 else
 	echo "exiting."
