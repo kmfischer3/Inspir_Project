@@ -2,8 +2,10 @@
 
 <div class="content container" style="background-color:#87bce8;">	
 
-	<div class="page-heading" style="background-color:#fff;">
-		<h1><span class="glyphicon glyphicon-screenshot" style="color:#87bce8;"></span> Religious</h1>
+	<div class="content container" style="background-color:#fff;">
+		<div class="page-heading">
+			<h1><span class="glyphicon glyphicon-screenshot" style="color:#87bce8;"></span> Religious<br><small>lorem ipsum blah blahb lah blah</small></h1>
+		</div>	
 	</div>
 
 	<div class="panel panel-default">

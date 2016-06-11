@@ -2,8 +2,10 @@
 
 <div class="content container" style="background-color:#f9bb5b;">	
 
-	<div class="page-heading">
-		<h1><span class="glyphicon glyphicon-tree-deciduous"></span> Meditation</h1>
+	<div class="content container" style="background-color:#fff;">
+		<div class="page-heading">
+			<h1><span class="glyphicon glyphicon-tree-deciduous" style="color:#f9bb5b;"></span> Meditation<br><small>lorem ipsum blah blahb lah blah</small></h1>
+		</div>	
 	</div>
 
 	<div class="panel panel-default">

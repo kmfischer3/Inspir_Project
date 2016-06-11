@@ -2,8 +2,10 @@
 
 <div class="content container" style="background-color:#a1ea75;">	
 
-	<div class="page-heading">
-		<h1><span class="glyphicon glyphicon-apple"></span> Health</h1>
+	<div class="content container" style="background-color:#fff;">
+		<div class="page-heading">
+			<h1><span class="glyphicon glyphicon-apple" style="color:#a1ea75;"></span> Health<br><small>lorem ipsum blah blahb lah blah</small></h1>
+		</div>	
 	</div>
 
 	<div class="panel panel-default">

@@ -2,8 +2,10 @@
 
 <div class="content container" style="background-color:#f1ee6f;">	
 
-	<div class="page-heading">
-		<h1><span class="glyphicon glyphicon-baby-formula"></span> Family</h1>
+	<div class="content container" style="background-color:#fff;">
+		<div class="page-heading">
+			<h1><span class="glyphicon glyphicon-baby-formula" style="color:#f1ee6f;"></span> Family<br><small>lorem ipsum blah blahb lah blah</small></h1>
+		</div>	
 	</div>
 
 	<div class="panel panel-default">
