@@ -1,11 +1,12 @@
 
 Theme Boards:
-	career
-	family
-	fun
-	health
-	religion
-	school 
+	career		dark blue
+	family		yellow
+	fun 		purple
+	health		green
+	meditation	orange
+	religious	light blue
+	school 		red
 
 $search_terms = array(
 					'career' => array('fierce','difficult','business'),
