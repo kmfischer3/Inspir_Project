@@ -4,7 +4,7 @@
 
 	<div class="content container" style="background-color:#fff;">
 		<div class="page-heading">
-			<h1><span class="glyphicon glyphicon-sunglasses" style="color:#d65cf3;"></span> Fun<br><small>lorem ipsum blah blahb lah blah</small></h1>
+			<h1><span class="glyphicon glyphicon-sunglasses" style="color:#d65cf3;"></span> Fun<br><small>Pass the time with the "Fun" posts. Mostly memes.</small></h1>
 		</div>	
 	</div>
 

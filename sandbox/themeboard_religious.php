@@ -4,7 +4,7 @@
 
 	<div class="content container" style="background-color:#fff;">
 		<div class="page-heading">
-			<h1><span class="glyphicon glyphicon-screenshot" style="color:#87bce8;"></span> Religious<br><small>lorem ipsum blah blahb lah blah</small></h1>
+			<h1><span class="glyphicon glyphicon-screenshot" style="color:#87bce8;"></span> Religious<br><small>I made a separate board for religious quotes so I don't come across them on the other boards. Post your inspirational scripture quotes here!</small></h1>
 		</div>	
 	</div>
 

@@ -4,7 +4,7 @@
 
 	<div class="content container" style="background-color:#fff;">
 		<div class="page-heading">
-			<h1><span class="glyphicon glyphicon-tree-deciduous" style="color:#f9bb5b;"></span> Meditation<br><small>lorem ipsum blah blahb lah blah</small></h1>
+			<h1><span class="glyphicon glyphicon-tree-deciduous" style="color:#f9bb5b;"></span> Meditation<br><small>The ThemeBoard that zens you the f*** out!</small></h1>
 		</div>	
 	</div>
 

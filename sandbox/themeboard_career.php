@@ -3,9 +3,8 @@
 <div class="content container" style="background-color:#5579e4;">	
 
 	<div class="content container" style="background-color:#fff;">
-		<div class="page-heading">
-			<h1><span class="glyphicon glyphicon-queen" style="color:#5579e4;"></span> Career<br><small>lorem ipsum blah blahb lah blah</small></h1>
-		</div>	
+			<h1><span class="glyphicon glyphicon-queen" style="color:#5579e4;"></span> Career<br><small>For motivation at the 9-to-5 or inspiration to be bold</small></h1>
+			<br>
 	</div>
 
 	<div class="panel panel-default">

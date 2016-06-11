@@ -4,7 +4,7 @@
 
 	<div class="content container" style="background-color:#fff;">
 		<div class="page-heading">
-			<h1><span class="glyphicon glyphicon-baby-formula" style="color:#f1ee6f;"></span> Family<br><small>lorem ipsum blah blahb lah blah</small></h1>
+			<h1><span class="glyphicon glyphicon-baby-formula" style="color:#f1ee6f;"></span> Family<br><small>Shout-out to the day-one's!</small></h1>
 		</div>	
 	</div>
 
