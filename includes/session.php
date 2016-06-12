@@ -1,6 +1,12 @@
 <?php
 	session_start();
 	
+	function checkLogin() {
+		if ( !isset($_SESSION["userid"]) ) {
+			header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/login.php');
+		}
+		return;
+	}
 	function message() {
 		if (isset($_SESSION["message"])) {
 			$output = "<div class=\"message\">";
