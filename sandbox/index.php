@@ -1,3 +1,5 @@
+<?php require_once("../includes/session.php"); ?>
+
 <?php include("../includes/page_top.php");?>
 
 <?php
