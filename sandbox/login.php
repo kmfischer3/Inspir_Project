@@ -14,7 +14,7 @@
 
 <div class="content container">
 
-	<form role="form" method="get" action="validate_login.php">
+	<form role="form" method="post" action="validate_login.php">
 
 		<div class="form-group input-group-lg">
 			<label for="login">Login</label>
