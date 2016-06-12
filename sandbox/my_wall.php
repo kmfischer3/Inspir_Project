@@ -3,7 +3,7 @@
 <div class="content container">	
 	<div class="page-header">
 		<!--<a href="#" class="pull-right" style="margin:10px;color:red;"><span class="glyphicon glyphicon-heart"></span></a>-->
-		<h1>KFischer<br><small>[Some Description]</small></h1>
+		<h1>kfischer<br><small>Krissy's Wall</small></h1>
 	</div>
 
 	<div class="panel panel-default">
