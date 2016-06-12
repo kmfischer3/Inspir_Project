@@ -14,16 +14,16 @@
 
 <div class="content container">
 
-	<form role="form" method="post" action="validate_login.php">
+	<form role="form" method="get" action="validate_login.php">
 
 		<div class="form-group input-group-lg">
 			<label for="login">Login</label>
-			<input class="form-control" type="text" id="login">
+			<input class="form-control" type="text" id="login" name="login" required>
 		</div>
 
 		<div class="form-group input-group-lg">
 			<label for="password">Password</label>
-			<input class="form-control" type="text" id="password">
+			<input class="form-control" type="text" id="password" name="password" required>
 		</div>
 
 		<input class="btn-lg btn-primary pull-right" type="submit" value="Sign in">
