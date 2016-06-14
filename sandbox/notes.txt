@@ -1,3 +1,16 @@
+***************************************************************************
+PUSH-SSH-PULL
+
+from the git repo (~/Desktop/Development/Inspir_Project/Inspir_Project):
+	./shell_scripts/push.sh
+	<enter commit msg>
+	yes
+	<password>
+
+	./pull.sh
+	exit
+***************************************************************************
+
 
 Theme Boards:
 	career		dark blue
