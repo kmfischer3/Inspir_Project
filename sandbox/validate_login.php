@@ -16,7 +16,7 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 	if (mysqli_connect_errno()) {
 		$response["status_code"] = "_SER";
 	} else {
-		$query = "SELECT * FROM Content";
+		$query = "SELECT * FROM Users";
 		$result = mysqli_query($connection, $query);
 		if (!$result) {
 			$response["status_code"] = "_SQL";
