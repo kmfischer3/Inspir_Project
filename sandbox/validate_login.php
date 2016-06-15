@@ -21,7 +21,7 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 				$id = mysqli_query($connection, $id_query);
 				$_SESSION["userid"] = "{$id}";
 				//header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/index.php');		
-				echo "worked";		
+				echo $result;		
 			}
 		}	
 	}
