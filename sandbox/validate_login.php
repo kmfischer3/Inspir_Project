@@ -8,23 +8,35 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 	$password = $_GET["password"];
 
 
+	// Set up JSON response per the API specs
+	$response = array();
+
+	$response["status_code"] = "_UNKNOWN";
+
 	if (mysqli_connect_errno()) {
-		echo "_SER error";
+		$response["status_code"] = "_SER";
 	} else {
-		$query = "SELECT password FROM Users WHERE login='{$login}';";
+		$query = "SELECT * FROM Content";
 		$result = mysqli_query($connection, $query);
 		if (!$result) {
-			echo = "_SQL error";
+			$response["status_code"] = "_SQL";
 		} else {
-			if ($password == $result) {
-				$id_query = "SELECT id FROM Users WHERE login='{$login}';";
-				$id = mysqli_query($connection, $id_query);
-				$_SESSION["userid"] = "{$id}";
-				//header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/index.php');		
-				echo $result;		
+			while ($person = mysqli_fetch_assoc($result)) {
+				/*$id = $result['id'];
+				$name = $result['name'];
+				$age = $result['age'];
+				$nickname = 0;*/
+				array_push($response, $person);
 			}
+			$response["status_code"] = "OK";
 		}	
 	}
+
+	// Output pretty JSON
+	$json = json_encode($response);
+	echo $json;
+	mysql_close($connection);
+
 
 } else {
 	echo "fail";
