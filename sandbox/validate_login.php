@@ -4,13 +4,11 @@
 <?php 
 
 if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
+
 	$login = $_GET["login"];
 	$password = $_GET["password"];
 
-
-	// Set up JSON response per the API specs
 	$response = array();
-
 	$response["status_code"] = "_UNKNOWN";
 
 	if (mysqli_connect_errno()) {
@@ -19,16 +17,21 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 		$query = "SELECT password FROM Users WHERE login = '{$login}';";
 		$result = mysqli_query($connection, $query);
 		if (!$result) {
-			$response["status_code"] = "_SQL";
+			$response["status_code"] = "_SQL_ERROR_OR_WRONG_LOGIN";
 		} else {
-			while ($person = mysqli_fetch_assoc($result)) {
-				/*$id = $result['id'];
-				$name = $result['name'];
-				$age = $result['age'];
-				$nickname = 0;*/
-				array_push($response, $person);
+			
+			if ($password == $result) {
+
+				$query2 = "SELECT id FROM Users WHERE login = '{$login}';";
+				$id = mysqli_query($connection, $query2);
+				$_SESSION["userid"] = "{$id}";
+				//header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/index.php');
+				$response["status_code"] = "OK";
+
+			} else {
+				$response["status_code"] = "INCORRECT_PASSWORD";
 			}
-			$response["status_code"] = "OK";
+
 		}	
 	}
 
@@ -43,3 +46,4 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 }
 
 ?>
+	
