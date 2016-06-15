@@ -19,7 +19,7 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 		if (!$result) {
 			$response["status_code"] = "_SQL_ERROR_OR_WRONG_LOGIN";
 		} else {
-			
+			echo "password entered: ".$password."<br>password from db: ".$result;
 			if ($password == $result) {
 
 				$query2 = "SELECT id FROM Users WHERE login = '{$login}';";
