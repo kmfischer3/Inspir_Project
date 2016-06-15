@@ -13,15 +13,15 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 
 	if (mysqli_connect_errno()) {
 		$response["status_code"] = "_SER";
-		echo "error1";
+		//echo "error1";
 	} else {
 		$query = "SELECT password FROM Users WHERE login = '{$login}';";
 		$result = mysqli_query($connection, $query);
 		if (!$result) {
-			echo "error2";
+			//echo "error2";
 			$response["status_code"] = "_SQL_ERROR_OR_WRONG_LOGIN";
 		} else {
-			//echo "password entered: ".$password."<br>password from db: ".$result;
+			echo "password entered: ".$password."<br>password from db: ".$result;
 			if ($password == $result) {
 
 				$query2 = "SELECT id FROM Users WHERE login = '{$login}';";
