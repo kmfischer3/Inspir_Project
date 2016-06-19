@@ -22,7 +22,7 @@ Theme Boards:
 	school 		red
 
 $search_terms = array(
-					'career' => array('fierce','difficult','business'),
+					'career' => array('career', fierce','hard work','leadership'),
 					'family' => array('love','parents','sibling'),
 					'fun' => array('hipster','colorful','quirky'),					
 					'health' => array('healthy','athlete','yoga'),

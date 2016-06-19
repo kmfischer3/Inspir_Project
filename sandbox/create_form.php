@@ -16,24 +16,31 @@
 		</div>
 
 
-	<h2><br><small>Step 2: Select ThemeBoard(s)</small></h2>
+	<h2><br><small>Step 2: Select A ThemeBoard</small></h2>
 		<div class="form-group input-group-lg">
-			<label for="checkbox"></label>	
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Business</label>
+			<div class="radio">
+			  <label><input type="radio" value="career" name="optradio">Career</label>
 			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Family</label>
+			<div class="radio">
+			  <label><input type="radio" value="family" name="optradio">Family</label>
 			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Goals</label>
+			<div class="radio disabled">
+			  <label><input type="radio" value="fun" name="optradio">Fun</label>
 			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="">Health</label>
+			<div class="radio">
+			  <label><input type="radio" value="health" name="optradio">Health</label>
 			</div>
-	    	</div>
-
-		<input class="btn-lg btn-primary pull-right" type="submit" value="Next Step >">
+			<div class="radio">
+			  <label><input type="radio" value="meditation" name="optradio">Meditation</label>
+			</div>
+			<div class="radio">
+			  <label><input type="radio" value="religious" name="optradio">Religious</label>
+			</div>
+			<div class="radio">
+			  <label><input type="radio" value="school" name="optradio">School</label>
+			</div>
+			<input class="btn-lg btn-primary pull-right" type="submit" value="Next Step >">
+		</div>
 	</form>
 
 </div>  

@@ -3,7 +3,8 @@
 	
 	function checkLogin() {
 		if ( !isset($_SESSION["userid"]) ) {
-			header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/login.php');
+			header('Location: /~kristina/inspir_project/sandbox/login.php');
+			//echo "redirected";
 		}
 		return;
 	}

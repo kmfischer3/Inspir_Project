@@ -1,9 +1,40 @@
+<?php require_once("../includes/session.php"); ?>
+<?php require_once("../includes/db_connection.php"); ?>
 <?php include("../includes/page_top.php");?>
+
+<?php
+	checkLogin();
+?>
+
+<?php 
+
+	$userid = $_SESSION["userid"];
+	$response = array();
+	$response["status_code"] = "_UNKNOWN";
+
+	if (mysqli_connect_errno()) {
+		$response["status_code"] = "_SER";
+	} else {
+		$query = "SELECT login,firstname FROM users WHERE id={$userid};";
+		$return = mysqli_query($connection, $query);
+		if (!$return) {
+			echo "<h1><br>bad</h1>";
+			$response["status_code"] = "_ERROR";
+		} else {
+				$result = mysqli_fetch_assoc($return);
+				echo "made it to the correct block";
+				$login = $result['login'];
+				$firstname = $result['firstname'];
+				$response["status_code"] = "OK";
+		}	
+	}
+
+?>
+
 
 <div class="content container">	
 	<div class="page-header">
-		<!--<a href="#" class="pull-right" style="margin:10px;color:red;"><span class="glyphicon glyphicon-heart"></span></a>-->
-		<h1>kfischer<br><small>Krissy's Wall</small></h1>
+		<h1>My Wall<br><small>Hello, <?php echo $firstname;?></small></h1>
 	</div>
 
 	<div class="panel panel-default">
@@ -13,7 +44,7 @@
 		</div>
 	  	<div class="panel-body">
 
-	    		<img class="img-responsive" src="https://farm9.staticflickr.com/8667/16663995655_5eb8a34ac7_o.jpg" alt="test">
+	    		<img class="img-responsive" src="../images/sunset.jpg" alt="test">
 
 		</div>
 	  	<div class="panel-footer">

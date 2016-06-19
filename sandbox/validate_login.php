@@ -3,10 +3,11 @@
 <?php require_once("../includes/functions.php"); ?>
 <?php 
 
-if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
+if ( !empty($_POST["login"]) && !empty($_POST["password"]) ) {
 
-	$login = $_GET["login"];
-	$password = $_GET["password"];
+	$login = $_POST["login"];
+	$password = $_POST["password"];
+	//$password = mysqli_real_escape_string($connection, password_hash($password, PASSWORD_DEFAULT));
 
 	$response = array();
 	$response["status_code"] = "_UNKNOWN";
@@ -15,23 +16,28 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 		$response["status_code"] = "_SER";
 		//echo "error1";
 	} else {
-		$query = "SELECT password FROM Users WHERE login = '{$login}';";
-		$result = mysqli_query($connection, $query);
+		$query = "SELECT id,password FROM users WHERE login = '{$login}';";
+		$return = mysqli_query($connection, $query);
+		$result = mysqli_fetch_assoc($return);
+		//echo "<br>result from sql: ".$result['password']."<br>";
 		if (!$result) {
 			//echo "error2";
 			$response["status_code"] = "_SQL_ERROR_OR_WRONG_LOGIN";
+			header('Location: login.php?access_denied=1');
 		} else {
-			echo "password entered: ".$password."<br>password from db: ".$result;
-			if ($password == $result) {
+			//echo "password entered: ".$password."<br>password from db: ".$result;
+			if (password_verify($password, $result['password'])) {
 
-				$query2 = "SELECT id FROM Users WHERE login = '{$login}';";
-				$id = mysqli_query($connection, $query2);
-				$_SESSION["userid"] = "{$id}";
-				//header('Location: http://pages.cs.wisc.edu/~kristina/inspir_project/sandbox/index.php');
+				//$query2 = $result['id'];
+				$id = $result['id'];
+				$_SESSION["userid"] = $id;
+				//echo "<br>session userid = ".$_SESSION["userid"]."<br>";
+				header('Location: index.php');
 				$response["status_code"] = "OK";
 
 			} else {
 				$response["status_code"] = "INCORRECT_PASSWORD";
+				header('Location: login.php?access_denied=1');
 			}
 
 		}	
@@ -39,12 +45,12 @@ if ( !empty($_GET["login"]) && !empty($_GET["password"]) ) {
 
 	// Output pretty JSON
 	$json = json_encode($response);
-	echo $json;
-	mysql_close($connection);
+	//echo $json;
+	mysqli_close($connection);
 
 
 } else {
-	echo "fail";
+	echo "login and password required";
 }
 
 ?>

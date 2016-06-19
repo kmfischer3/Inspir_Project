@@ -1,10 +1,11 @@
 <?php require_once("../includes/session.php"); ?>
-
-<?php include("../includes/page_top.php");?>
-
 <?php
 	checkLogin();
 ?>
+
+<?php include("../includes/page_top.php");?>
+
+
 <div class="content container">
 	<h1>Welcome</h1>
 	<p>[FINAL TEST hopefully]Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab libero, cupiditate veniam officiis itaque in porro iure fugit iusto reprehenderit commodi earum cum blanditiis quos error similique quod, facere! Hic.</p>

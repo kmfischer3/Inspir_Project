@@ -6,24 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <title>InspirGram</title>
+  <title>Create Account</title>
 </head>
 <body>
 
-<?php require_once("../includes/session.php"); ?>
-
-<?php 
-
-	if(!empty($_GET['access_denied'])) {
-	    echo '<div style="color:red;">Incorrect username or password</div>';
-	}
-
-?>
-
+<?php require_once("../includes/db_connection.php"); ?>
 
 <div class="content container">
-
-	<form role="form" method="post" action="validate_login.php">
+	<h1>Add new user</h1>
+	<form role="form" method="post" action="add_new_user.php">
 
 		<div class="form-group input-group-lg">
 			<label for="login">Login</label>
@@ -33,6 +24,11 @@
 		<div class="form-group input-group-lg">
 			<label for="password">Password</label>
 			<input class="form-control" type="text" id="password" name="password" required>
+		</div>
+
+		<div class="form-group input-group-lg">
+			<label for="firstname">First Name</label>
+			<input class="form-control" type="text" id="firstname" name="firstname" required>
 		</div>
 
 		<input class="btn-lg btn-primary pull-right" type="submit" value="Sign in">
