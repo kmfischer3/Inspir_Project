@@ -54,6 +54,7 @@ echo "<br>"."RADIO ALUE IS: ".$radio."<br>";
 
 	foreach ($text_array as $word) {
 		if ($word == 'are') break;
+		if ($word == 'is') break;
 		echo $word."<br>";
 		$random_term = urlencode($search_terms[$radio][$rand]);
 		$json = file_get_contents("https://pixabay.com/api/?key=".$API_KEY."&q=".$word."+".$random_term);
