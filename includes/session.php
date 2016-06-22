@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	//checkLogin();
+	$_SESSION["userid"] = 4;
 	function checkLogin() {
 		if ( !isset($_SESSION["userid"]) ) {
 			header('Location: /~kristina/inspir_project/sandbox/login.php');
