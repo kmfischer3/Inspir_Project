@@ -17,7 +17,8 @@ if (mysqli_connect_errno()) {
 
 		$result = mysqli_query($connection, $query);
 		if (!$result) {
-			$response["status_code"] = "ERROR_POSTING";
+			$response["status_code"] = "ERROR_POSTING<br>";
+			echo("Error description: " . mysqli_error($connection));
 		} else {
 			//echo "inserted result: ".$result;
 			$response["status_code"] = "OK";
