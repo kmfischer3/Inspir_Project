@@ -1,8 +1,7 @@
-<?php include("../includes/page_top.php");?>
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-
+<?php include("../includes/page_top.php");?>
 <?php
 echo "<br><br><br><br>";
 if (mysqli_connect_errno()) {
@@ -34,12 +33,12 @@ mysqli_close($connection);
 
 ?>
 
-<div class="page-header">
-	<h2>Preview:</h2>
-		<div class="panel panel-default"><div class="panel-body"><div class="carousel slide"><div class="carousel inner"><div class="item active"><img class="img-responsive" src="<?php echo $url; ?>" alt="preview"><div class="carousel-caption"><h1><?php echo $text; ?></h1></div></div></div></div></div></di>
-</div>
-
 <div class="content container">
+	<div class="page-header">
+		<h2>Preview:</h2>
+		<div class="panel panel-default"><div class="panel-body"><div class="carousel slide"><div class="carousel inner"><div class="item active"><img class="img-responsive" src="<?php echo $url; ?>" alt="preview"><div class="carousel-caption"><h1><?php echo $text; ?></h1></div></div></div></div></div></div>
+	</div>
+
 	<h3>Post to Wall(s)</h3>
 	<form role="form" method="post" action="post.php">
 				<input type="hidden" name="inputLink" value="<?php echo urlencode($url); ?>">

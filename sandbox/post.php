@@ -1,35 +1,40 @@
-
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-<?php include("../includes/page_top.php");?>
-
 <?php
 
 if (mysqli_connect_errno()) {
 	$response["status_code"] = "_SERVER-ERROR";
 } else {
 
-	if ( !empty($_GET["inputLink"]) && !empty($_GET["inputText"]) ) {
+	if ( !empty($_POST["inputLink"]) && !empty($_POST["inputText"]) ) {
 
-        $url = urldecode($_GET["inputLink"]);
-        $text = urldecode($_GET["inputText"]);
-        $userid = 4;
+        $url = urldecode($_POST["inputLink"]);
+        $text = $login = mysqli_real_escape_string($connection, urldecode($_POST["inputText"]));
+        $userid = $_SESSION["userid"];
 
         $query = "INSERT INTO posts (userid, image, text) VALUES ({$userid}, '{$url}', '{$text}');";
-        echo "<br><br><br>".$query;
+
+		$result = mysqli_query($connection, $query);
+		if (!$result) {
+			$response["status_code"] = "ERROR_POSTING";
+		} else {
+			//echo "inserted result: ".$result;
+			$response["status_code"] = "OK";
+			header('Location: /~kristina/inspir_project/sandbox/index.php');
+		}
+
 	} else {
 		$response["status_code"] = "_INVALID_INPUT";
 	}
 
 
-
 	//TODO later
-	if ( !empty($_GET["optradio"]) ) {
+	if ( !empty($_POST["optradio"]) ) {
 		// includes author if there is one
         //$text = $_GET["inputText"];
         //echo "text before decode: ".$_GET["inputText"]."<br>";
-        $optradio = $_GET["optradio"];
+        $optradio = $_POST["optradio"];
         //echo "text after decode: ".$text;
 	}
 }
@@ -37,6 +42,3 @@ if (mysqli_connect_errno()) {
 mysqli_close($connection);
 
 ?>
-
-
-<?php include("../includes/page_bottom.php");?>

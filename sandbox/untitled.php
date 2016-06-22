@@ -1,0 +1,3 @@
+<div class="panel panel-default"><div class="panel-heading"><a href="my_wall.php"><span class="glyphicon glyphicon-user"></span> '.$login.'</a><div class="pull-right"><span class="glyphicon glyphicon-time"></span> '.$postdate.'</div></div><div class="panel-body"><div class="carousel slide"><div class="carousel inner"><div class="item active"><img class="img-responsive" src="'.$image.'" alt="img"><div class="carousel-caption"><h1>'.$text.'</h1></div></div></div></div></div><div class="panel-footer"><span class="glyphicon glyphicon-heart-empty"></span> 4</div></div>
+
+'<a href="'.$params.'" class="panel panel-default"><div class="panel-body"><div class="carousel slide"><div class="carousel inner"><div class="item active"><img class="img-responsive" src="';

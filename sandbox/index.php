@@ -1,78 +1,60 @@
 <?php require_once("../includes/session.php"); ?>
+<?php require_once("../includes/db_connection.php"); ?>
+<?php require_once("../includes/functions.php"); ?>
+<?php include("timestamp_transform.php"); ?>
+
 <?php
 	checkLogin();
 ?>
-
 <?php include("../includes/page_top.php");?>
 
 
-<div class="content container">
-	<h1>Welcome</h1>
-	<p>[FINAL TEST hopefully]Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab libero, cupiditate veniam officiis itaque in porro iure fugit iusto reprehenderit commodi earum cum blanditiis quos error similique quod, facere! Hic.</p>
+<?php
+
+if (mysqli_connect_errno()) {
+	$response["status_code"] = "_SERVER-ERROR";
+} else {
+
+        $query = "SELECT * FROM posts ORDER BY postdate DESC";
+		$result = mysqli_query($connection, $query);
+		//$result = mysqli_fetch_assoc($return);
+
+		if (!$result) {
+			$response["status_code"] = "_SQL_ERROR_OR_NO_POSTS_TO_DISPLAY";
+			echo "<h4>No posts to display.</h4>";
+		} else {
+
+			echo '<div class="content container"><h1>Welcome</h1><p>[FINAL TEST hopefully]Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab libero, cupiditate veniam officiis itaque in porro iure fugit iusto reprehenderit commodi earum cum blanditiis quos error similique quod, facere! Hic.</p><br>';
+
+			while ($post = mysqli_fetch_assoc($result)) {
+
+				$userid = $post['userid'];
+				$image = $post['image'];
+				$text = $post['text'];
+				$postdate = $post['postdate'];
+
+				$user_query = "SELECT login FROM users WHERE id={$userid}";
+				$name = mysqli_query($connection, $user_query);
+				//$name = $mysqli_query($connection, "SELECT login FROM users WHERE id={$userid}");
+				$what = mysqli_fetch_assoc($name);
+				$login = $what['login'];
 
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<a href="my_wall.php"><span class="glyphicon glyphicon-user"></span> kfischer</a>
-			<div class="pull-right"><span class="glyphicon glyphicon-time"></span> 2h</div>
-		</div>
-	  	<div class="panel-body">
+				$postdate = time_elapsed_string($postdate);
 
-	    		<img class="img-responsive" src="http://reichardtfoundation.com/woohoo/wp-content/uploads/inspiration-quotes-21.jpg" alt="test">
+				echo '<div class="panel panel-default"><div class="panel-heading"><a href="my_wall.php"><span class="glyphicon glyphicon-user"></span> '.$login.'</a><div class="pull-right"><span class="glyphicon glyphicon-time"></span> '.$postdate.'</div></div><div class="panel-body"><div class="carousel slide"><div class="carousel inner"><div class="item active"><img class="img-responsive" src="'.$image.'" alt="img"><div class="carousel-caption"><h1>'.$text.'</h1></div></div></div></div></div><div class="panel-footer"><span class="glyphicon glyphicon-heart-empty"></span> 4</div></div>';
 
-		</div>
-	  	<div class="panel-footer">
-			<span class="glyphicon glyphicon-heart-empty"></span> 4
-		</div>
-	</div>
+			}
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<a href="my_wall.php"><span class="glyphicon glyphicon-user"></span> kfischer</a>
-			<div class="pull-right"><span class="glyphicon glyphicon-time"></span> 3h</div>
-		</div>
-	  	<div class="panel-body">
+			echo '</div>';
+			$response["status_code"] = "OK";
+		}
 
-	    		<img class="img-responsive" src="https://farm9.staticflickr.com/8667/16663995655_5eb8a34ac7_o.jpg" alt="test">
+}
 
-		</div>
-	  	<div class="panel-footer">
-			<span class="glyphicon glyphicon-heart"></span> 7
-		</div>
-	</div>
+mysqli_close($connection);
 
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<a href="#"><span class="glyphicon glyphicon-user"></span> kfischer</a>
-			<div class="pull-right"><span class="glyphicon glyphicon-time"></span> 1d</div>
-		</div>
-	  	<div class="panel-body">
-
-	    		<img class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/736x/52/52/73/5252733e55208d58ffc633b9492d6f48.jpg" alt="test2">
-	  	
-		</div>
-	  	<div class="panel-footer">
-			<span class="glyphicon glyphicon-heart"></span> 5
-		</div>
-	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<a href="my_wall.php"><span class="glyphicon glyphicon-user"></span> kfischer</a>
-			<div class="pull-right"><span class="glyphicon glyphicon-time"></span> 1d</div>
-		</div>
-	  	<div class="panel-body">
-
-	    		<img class="img-responsive" src="http://www.dailybackgrounds.com/wp-content/uploads/2015/01/keep-calm-and-study-on.jpg" alt="test3">
-	  	
-	  	</div>
-	  	<div class="panel-footer">
-			<span class="glyphicon glyphicon-heart-empty"></span> 1
-		</div>
-	</div>
-
-
-</div>  
+?>
 
 <?php include("../includes/button-add.html");?>
 <?php include("../includes/page_bottom.php");?>
