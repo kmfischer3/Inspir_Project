@@ -8,11 +8,15 @@
 
 <?php
 //old verion: add-new.php
+	echo "<br><br><br><br><br>";
 
+	//$text = 'the meaning of life is to find your gift; the purpose of life is to give it away';
 
 $text = "";
 if ( !empty($_GET["inputText"]) ) {
 	$text = $_GET["inputText"];
+	$text_array = explode(" ", $text);
+	var_dump($text_array)."<br><br>";
 }
 if ( !empty($_GET["inputAuthor"]) ) {
 	$author = $_GET["inputAuthor"];
@@ -20,9 +24,12 @@ if ( !empty($_GET["inputAuthor"]) ) {
 }
 if ( !empty($_GET["optradio"]) ) {
 	$radio = $_GET["optradio"];
+
 } else {
 	$radio = 'none';
 }
+
+echo "<br>"."RADIO ALUE IS: ".$radio."<br>";
 
 	$search_terms = array(
 						'career' => array('career','fierce','hard work','leadership'),
@@ -36,11 +43,35 @@ if ( !empty($_GET["optradio"]) ) {
 					);
 
 
-$rand = urlencode($search_terms[$radio][rand(0, 3)]);
+	$rand = rand(0, 3);
+	//$rand_all = rand(0, 7);
+	$search_term = urlencode($search_terms[$radio][$rand]);
 
-$json = file_get_contents("https://pixabay.com/api/?key=".$API_KEY."&q=".$rand);
+	$json = file_get_contents("https://pixabay.com/api/?key=".$API_KEY."&q=".$search_term);
+	$new_search_json = json_decode($json, true);
 
-$result = json_decode($json, true);
+	$max_results = 10;
+
+	foreach ($text_array as $word) {
+		if ($word == 'are') break;
+		echo $word."<br>";
+		$random_term = urlencode($search_terms[$radio][$rand]);
+		$json = file_get_contents("https://pixabay.com/api/?key=".$API_KEY."&q=".$word."+".$random_term);
+
+		$result = json_decode($json, true);
+
+		if ($result["total"] > $max_results){
+			echo "https://pixabay.com/api/?key=".$API_KEY."&q=".$word."+".$random_term;
+			$search_term = urlencode($word);
+			$new_search_json = $result;
+			$max_results = $result["total"];
+			echo "--> total_hits = ".$max_results."<br>";
+		}
+	}
+
+	// At this point, search_term is either the "best" word from the input string, or a fallback from $search_terms array
+	echo "'best' chosen search term= ".$search_term."<br>";
+
 
 echo '<div class="content container"><h2>Select an image:</h2><br>';
 	$i = 0;

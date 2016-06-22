@@ -2,10 +2,6 @@
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php include("timestamp_transform.php"); ?>
-
-<?php
-	checkLogin();
-?>
 <?php include("../includes/page_top.php");?>
 
 
