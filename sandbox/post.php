@@ -12,12 +12,13 @@ if (mysqli_connect_errno()) {
         $url = urldecode($_POST["inputLink"]);
         $text = $login = mysqli_real_escape_string($connection, urldecode($_POST["inputText"]));
         $userid = $_SESSION["userid"];
+        echo "url: ".$url."<br>";
 
-        $query = "INSERT INTO posts (userid, image, text) VALUES ({$userid}, '{$url}', '{$text}');";
-
-		$result = mysqli_query($connection, $query);
+        //$query = "INSERT INTO posts (userid, image, text) VALUES ({$userid}, '{$url}', '{$text}');";
+        $result = false;
+		//$result = mysqli_query($connection, $query);
 		if (!$result) {
-			$response["status_code"] = "ERROR_POSTING<br>";
+			$response["status_code"] = "ERROR_POSTING";
 			echo("Error description: " . mysqli_error($connection));
 		} else {
 			//echo "inserted result: ".$result;
