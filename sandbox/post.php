@@ -39,6 +39,9 @@ if (mysqli_connect_errno()) {
 	}
 }
 
+$json = json_encode($response);
+echo $json;
+
 mysqli_close($connection);
 
 ?>
